@@ -7,6 +7,6 @@ WORKDIR /servicetwo
 # Install pip dependencies from requirements
 RUN pip install -r "requirements.txt"
 # Expose the correct port
-EXPOSE 5003
+EXPOSE 5002
 # Create an entrypoint
 ENTRYPOINT [ "python" , "app.py"]

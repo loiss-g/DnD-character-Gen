@@ -6,7 +6,7 @@ from aws_xray_sdk.core import xray_recorder
 from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = ("mysql+pymysql://" + getenv('MYSQL_USER') + ":" + getenv('MYSQL_PWD') + "@" + getenv('MYSQL_IP') + "/" + getenv('MYSQL_DB'))
+app.config['SQLALCHEMY_DATABASE_URI'] = ("mysql+pymysql://root:Password123@localhost:3306/loistries") + getenv('MYSQL_USER') + ":" + getenv('MYSQL_PWD') + "@" + getenv('MYSQL_IP') + "/" + getenv('MYSQL_DB')
 app.config['SECRET_KEY'] = getenv('MYSQL_SK')
 
 db = SQLAlchemy(app)
