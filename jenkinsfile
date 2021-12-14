@@ -14,7 +14,9 @@ pipeline {
         }
     stage ('Build images and container') {
         steps{
-            sh 'docker-compose up -d'
+            script {
+                dockerImage= docker.build registry + ":$BUILD_NUMBER"
+            }
         }    
     }
     stage ('Test') {
