@@ -3,7 +3,7 @@ pipeline {
         registry = "loiss/loissp"
         registryCredential = 'dockerhub'
         dockerImage = ''
-        MYSQL_PWD = "loispwd"
+        loispwd = "MYSQL_PWD"
   }
    agent any
    stages {
