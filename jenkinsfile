@@ -1,37 +1,37 @@
 pipeline {
-    environment {
-      registry = "loiss/loissp"
-      registryCredential = 'dockerhub'
-      dockerImage = ''
-      }
-    agent any
-    stages {
-        stage('Clone Git repo') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/loiss-g/loistries_DnD-character-Gen'
-            }
+  environment {
+        registry = "loiss/loissp"
+        registryCredential = 'dockerhub'
+        dockerImage = ''
+  }
+   agent any
+   stages {
+     stage('Clone Git repo') {
+        steps {
+          git branch: 'main',
+          url: 'https://github.com/loiss-g/loistries_DnD-character-Gen'
         }
+    }
     stage ('Build images and container') {
-        steps{
-            script {
-                dockerImage= docker.build registry + ":$BUILD_NUMBER"
-            }
-        }    
+       steps{
+         script {
+           dockerImage= docker.build registry + ":$BUILD_NUMBER"
+         }
+       }    
     }
     stage ('Test') {
-        withPythonEnv ('python') {
-            sh 'pytest test_frontend_.py'
-        }
+       withPythonEnv ('python') {
+           sh 'pytest test_frontend_.py'
+       }
     }
     stage ('push images to dockerhub') {
-        steps{
-            script{
-                docker.withRegistry('', registryCredential ) {
-                    dockerImage.push()
-                    }
-                }
+       steps{
+         script{
+            docker.withRegistry('', registryCredential ) {
+              dockerImage.push()
             }
-        }
+         }
+       }
     }
+   }   
 }
