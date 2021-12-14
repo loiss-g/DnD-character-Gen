@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Git repo') {
             steps {
-                git branch: 'main'
+                git branch: 'main',
                     url: 'https://github.com/loiss-g/loistries_DnD-character-Gen'
             }
         }
