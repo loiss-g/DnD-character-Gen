@@ -32,14 +32,8 @@ services:
      protocol: tcp
    volumes:
      - type: bind
-       source: ./frontend/nginx/nginx.conf
+       source: ./nginx/nginx.conf
        target: /etc/nginx/nginx.conf
-  mysql:
-    image: mysql:5.7
-    build: ./frontend/db
-    environment:
-      - MYSQL_PWD=${LOISPWD}
-    container_name: mysql
   backend:
    build: ./backend
    container_name: backend 
