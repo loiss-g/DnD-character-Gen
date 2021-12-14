@@ -3,7 +3,7 @@ services:
   frontend:
     build: ./frontend
     environment:
-      MYSQL_PWD=${LOISPWD}
+      - MYSQL_PWD=${LOISPWD}
     container_name: application 
     ports:
     - target: 5000
@@ -38,7 +38,7 @@ services:
     image: mysql:5.7
     build: ./frontend/db
     environment:
-      MYSQL_PWD=${LOISPWD}
+      - MYSQL_PWD=${LOISPWD}
     container_name: mysql
   backend:
    build: ./backend
