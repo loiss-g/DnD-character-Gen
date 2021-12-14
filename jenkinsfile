@@ -16,7 +16,8 @@ pipeline {
        steps{
          script {
            def MYSQL_PWD = "loispwd"
-           sh "echo ${loispwd}"
+           sh "echo ${loispwd}",
+           sh 'docker-compose up -d'
               }
            }
        }
