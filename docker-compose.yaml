@@ -3,7 +3,7 @@ services:
   frontend:
     build: ./frontend
     environment:
-      - MYSQL_PWD=${LOISPWD}
+      - MYSQL_ROOT_PASSWORD=${LOISPWD}
     container_name: application 
     ports:
     - target: 5000
