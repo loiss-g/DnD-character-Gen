@@ -1,0 +1,23 @@
+pipeline {
+    environment {
+        registry = "loiss/loissp"
+        registryCredential = 'dockerhub_id'
+        dockerImage = ''
+        }
+    
+    agent any
+    stages {
+        stage('Cloning Git') {
+            steps {
+                git branch: 'main',
+                     url: 'https://github.com/loiss-g/loistries_dnd-character-gen'
+           }
+       }
+    
+    stage('Building image') {
+        steps{
+            sh 'docker-compose up -d'
+                }
+           }
+       }
+}
