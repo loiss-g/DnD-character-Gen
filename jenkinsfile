@@ -12,11 +12,9 @@ pipeline {
           url: 'https://github.com/loiss-g/loistries_DnD-character-Gen'
         }
     }
-    stage ('Build images and container') {
+    stage ('Build') {
        steps{
-         script {
-           dockerImage= docker.build registry + ":$BUILD_NUMBER"
-         }
+           sh 'docker-compose up -d'
        }    
     }
     stage ('Test') {
