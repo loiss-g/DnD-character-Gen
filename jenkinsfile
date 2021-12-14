@@ -14,7 +14,7 @@ pipeline {
     }
     stage ('Build') {
        steps{
-           sh './var/lib/jenkins/workspace/LoistriesDND/docker-compose.yaml up --build'
+           sh 'docker-compose up -d'
        }
     }
     stage ('Test') {
