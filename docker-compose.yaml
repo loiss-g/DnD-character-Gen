@@ -3,7 +3,7 @@ services:
   frontend:
     build: ./frontend
     environment:
-      - MYSQL_ROOT_PASSWORD=${LOISPWD}
+      - MYSQL_ROOT_PASSWORD=${loispwd}
     container_name: application 
     ports:
     - target: 5000
@@ -39,7 +39,7 @@ services:
      build: ./db 
      container_name: mysql
      environment:
-        - MYSQL_ROOT_PASSWORD=${LOISPWD}
+        - MYSQL_ROOT_PASSWORD=${loispwd}
   backend:
    build: ./backend
    container_name: backend 

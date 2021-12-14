@@ -17,6 +17,11 @@ pipeline {
             sh 'docker-compose up -d'
         }    
     }
+    stage ('Test') {
+        withPythonEnv ('python') {
+            sh 'pytest test_frontend_.py'
+        }
+    }
     stage ('push images to dockerhub') {
         steps{
             script{

@@ -11,7 +11,7 @@ ENV MYSQL_USER "root"
 ENV MYSQL_IP "localhost"
 ENV MYSQL_DB "loistries"
 ENV MYSQL_SK "gtdxtrdfyhfhyfyf"
-
+ENV MYSQL_PWD "loispwd"
 # Expose the correct port
 EXPOSE 5000
 # Create an entrypoint
