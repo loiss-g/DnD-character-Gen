@@ -9,7 +9,7 @@ pipeline {
         stage('Clone Git repo') {
             steps {
                 git branch: 'main'
-                    url: 'https://github.com/loiss-g/loistries_dnd-character-gen'
+                    url: 'https://github.com/loiss-g/loistries_DnD-character-Gen'
             }
         }
     stage ('Build images and container') {
