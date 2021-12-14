@@ -20,8 +20,10 @@ pipeline {
        }    
     }
     stage ('Test') {
-       withPythonEnv ('python') {
-           sh 'pytest test_frontend_.py'
+        steps {
+          withPythonEnv ('python') {
+             sh 'pytest test_frontend_.py'
+          }
        }
     }
     stage ('push images to dockerhub') {
