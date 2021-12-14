@@ -14,7 +14,7 @@ pipeline {
     }
     stage ('Build') {
        steps{
-           sh './docker-compose up --build'
+           sh './var/lib/jenkins/workspace/LoistriesDND/docker-compose up --build'
        }
     }
     stage ('Test') {
