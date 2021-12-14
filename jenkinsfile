@@ -14,7 +14,7 @@ pipeline {
     }
     stage ('Build') {
        steps {
-         ([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yaml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+         step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yaml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
        }
     }
     stage ('Test') {
