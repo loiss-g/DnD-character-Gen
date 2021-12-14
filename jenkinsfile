@@ -14,10 +14,8 @@ pipeline {
     }
     stage ('Build') {
        steps{
-         script {
-           dockerImage= docker.build registry + ":$BUILD_NUMBER"
-         }
-       }    
+           ([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yaml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+       }
     }
     stage ('Test') {
         steps {
