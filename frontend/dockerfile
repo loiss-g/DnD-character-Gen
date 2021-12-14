@@ -6,9 +6,10 @@ WORKDIR /frontendtest
  COPY . .
 # Install pip dependencies from requirements
 RUN pip install -r "requirements.txt"
+ARG DBPASSWORD 
 # Set environment variable
 ENV MYSQL_USER "loistries"
-ENV MYSQL_PWD "Password123"
+ENV MYSQL_PWD "$DBPASSWORD"
 ENV MYSQL_IP "188.220.42.173"
 ENV MYSQL_DB "loistries"
 ENV MYSQL_SK "gtdxtrdfyhfhyfyf"

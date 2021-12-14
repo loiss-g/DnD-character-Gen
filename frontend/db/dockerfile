@@ -1,8 +1,9 @@
 # Derived from official mysql image (our base image)
 # Use mysql 5.7 as the flask-app is not set up to work with later versions
 FROM mysql:5.7
+ARG DBPASSWORD 
 # Add a database and root password
-ENV MYSQL_PWD=Password123
+ENV MYSQL_PWD=$DBPASSWORD
 ENV MYSQL_DB=loistries
 # Add the content of the .sql file to your image
 COPY CreateTable.sql docker-entrypoint-initdb.d/
