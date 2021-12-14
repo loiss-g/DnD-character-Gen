@@ -1,0 +1,4 @@
+FROM mysql:5.7
+# Add a database and root password
+ENV MYSQL_ROOT_PASSWORD=loispwd
+ENV MYSQL_DATABASE=loistries

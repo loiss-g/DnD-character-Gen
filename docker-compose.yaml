@@ -34,6 +34,12 @@ services:
      - type: bind
        source: ./nginx/nginx.conf
        target: /etc/nginx/nginx.conf
+  mysql:
+     image: mysql:5.7
+     build: ./db 
+     container_name: mysql
+     environment:
+        - MYSQL_ROOT_PASSWORD=${LOISPWD}
   backend:
    build: ./backend
    container_name: backend 
