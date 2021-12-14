@@ -11,8 +11,8 @@ pipeline {
           git branch: 'main',
           url: 'https://github.com/loiss-g/loistries_DnD-character-Gen'
         }
-    }
-    stage ('Build') {
+     }
+     stage ('Build') {
        steps{
          script {
            def MYSQL_PWD = "loispwd"
@@ -21,15 +21,15 @@ pipeline {
               }
            }
        }
-    }    
-    stage ('Test') {
+     }    
+     stage ('Test') {
         steps {
           withPythonEnv ('python') {
              sh 'pytest test_frontend_.py'
           }
        }
-    }
-    stage ('push images to dockerhub') {
+     }
+     stage ('push images to dockerhub') {
        steps{
          script{
             docker.withRegistry('', registryCredential ) {
