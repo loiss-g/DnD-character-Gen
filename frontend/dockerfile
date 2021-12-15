@@ -8,7 +8,7 @@ COPY . .
 RUN pip install -r "requirements.txt" 
 # Set environment variable
 ENV MYSQL_USER "root"
-ENV MYSQL_IP "127.0.0.1"
+ENV MYSQL_IP "localhost"
 ENV MYSQL_DB "loisproject"
 ENV MYSQL_SK "gtdxtrdfyhfhyfyf"
 

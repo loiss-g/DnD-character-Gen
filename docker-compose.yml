@@ -1,5 +1,11 @@
 version: "3.7"
 services:
+  mysql:
+     image: mysql:5.7
+     build: ./db
+     container_name: mysql
+     environment:
+        - MYSQL_ROOT_PASSWORD=${loispwd}
   frontend:
     build: ./frontend
     environment:
@@ -9,6 +15,8 @@ services:
     - target: 5000
       published: 5000
       protocol: tcp
+    depends_on:
+     - mysql
   service1:
     build: ./service1
     container_name: serviceone 
@@ -34,12 +42,6 @@ services:
      - type: bind
        source: ./nginx/nginx.conf
        target: /etc/nginx/nginx.conf
-  mysql:
-     image: mysql:5.7
-     build: ./db
-     container_name: mysql
-     environment:
-        - MYSQL_ROOT_PASSWORD=${loispwd}
   backend:
    build: ./backend
    container_name: backend 
