@@ -24,7 +24,7 @@ pipeline {
         steps {
             withPythonEnv('python3'){
                 sh 'pip install pytest'
-                sh 'python -m pytest ./test'
+                sh 'python -m pytest ./frontend/test'
             }
         }
     }
