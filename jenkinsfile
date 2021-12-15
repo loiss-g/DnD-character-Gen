@@ -21,7 +21,7 @@ pipeline {
     }
     stage ('Test') {
         steps {
-             sh 'pytest ./frontend/tests/test_front_end_.py'
+             bat 'pytest ./frontend/tests/test_front_end_.py'
           }
     }
     stage ('push images to dockerhub') {
