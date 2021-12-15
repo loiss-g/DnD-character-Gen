@@ -15,10 +15,9 @@ pipeline {
     // }
     stage ('Build') {
        steps {
-           script {
-               dockerImage = docker.build registry + ":$BUILD_NUMBER"
-           }
-       } 
+           sh 'pwd'
+           step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yaml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+       }
     }
     stage ('push images to dockerhub') {
        steps{
