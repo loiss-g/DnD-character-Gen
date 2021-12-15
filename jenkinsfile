@@ -21,7 +21,7 @@ pipeline {
     }
     stage ('push images to dockerhub') {
        steps{
-           sh 'docker-compose push mysql frontend backend service1 service2'
+           sh 'docker-compose push loiss/loissp:mysql frontend backend service1 service2'
        }
     }
     stage ('Test') {
