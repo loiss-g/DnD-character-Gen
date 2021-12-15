@@ -16,7 +16,7 @@ pipeline {
     stage ('Build') {
        steps {
            sh 'pwd'
-           step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yaml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+           sh 'docker-compose up -d'
        }
     }
     stage ('push images to dockerhub') {
