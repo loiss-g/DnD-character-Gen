@@ -31,17 +31,6 @@ services:
     - target: 5002
       published: 5002
       protocol: tcp
-  nginx:
-   image: nginx:latest
-   container_name: appnginx
-   ports:
-   - target: 80
-     published: 80
-     protocol: tcp
-   volumes:
-     - type: bind
-       source: ./nginx/nginx.conf
-       target: /etc/nginx/nginx.conf
   backend:
    build: ./backend
    container_name: backend 
