@@ -8,6 +8,7 @@ services:
         - MYSQL_ROOT_PASSWORD=${loispwd}
   frontend:
     build: ./frontend
+    image: loiss/application:latest
     environment:
       - MYSQL_PWD=${loispwd}
     container_name: application 
@@ -19,6 +20,7 @@ services:
      - mysql
   service1:
     build: ./service1
+    image: loiss/service1:latest
     container_name: serviceone 
     ports:
     - target: 5001
@@ -26,6 +28,7 @@ services:
       protocol: tcp 
   service2:
     build: ./service2
+    image: loiss/service2:latest
     container_name: servicetwo
     ports:
     - target: 5002
@@ -33,6 +36,7 @@ services:
       protocol: tcp
   backend:
    build: ./backend
+   image: loiss/backend:latest
    container_name: backend 
    ports:
    - target: 5003
