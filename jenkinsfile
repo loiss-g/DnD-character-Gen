@@ -1,19 +1,10 @@
 pipeline {
   environment {
-        // registry = "loiss/loissp"
-        // registryCredential = 'dockerhub'
-        dockerImage = ''
         loispwd=credentials("dbpwd")
         DOCKERHUB_CREDENTIALS=credentials('dockerhub')
   }
    agent any
    stages {
-    //  stage('Clone Git repo') {
-    //     steps {
-    //       git branch: 'main',
-    //       url: 'https://github.com/loiss-g/loistries_DnD-character-Gen.git'
-    //     }
-    // }
     stage ('Build images') {
        steps {
            sh 'pwd'
