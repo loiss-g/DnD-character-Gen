@@ -21,7 +21,7 @@ pipeline {
     }
     stage ('push images to dockerhub') {
        steps{
-           sh 'docker-compose push loiss/loissp'
+           sh 'docker-compose push loiss'
        }
     }
     stage ('Test') {
