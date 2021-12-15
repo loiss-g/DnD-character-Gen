@@ -21,6 +21,10 @@ pipeline {
     }
     stage ('push images to dockerhub') {
        steps{
+           sh 'docker push loiss/loissp:application'
+           sh 'docker push loiss/loissp:backend'
+           sh 'docker push loiss/loissp:serviceone'
+           sh 'docker push loiss/loissp:servicetwo'
            sh 'docker push loiss/loissp:frontend'
        }
     }
