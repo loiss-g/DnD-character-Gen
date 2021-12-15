@@ -13,27 +13,18 @@ pipeline {
     //       url: 'https://github.com/loiss-g/loistries_DnD-character-Gen.git'
     //     }
     // }
-     stage ('Build') {
+    stage ('Build') {
        steps {
            sh 'pwd'
            sh 'docker-compose up -d'
        }
-     }
-     stage ('Build') {
-       steps {
-           sh ' docker push loiss/loissp'
+    }
+    stage ('push images to dockerhub') {
+       steps{
+           sh 'docker pus loiss/loissp'
        }
-     }
-    // stage ('push images to dockerhub') {
-    //    steps{
-    //      script{
-    //         docker.withRegistry('', registryCredential ) {
-    //           dockerImage.push()
-    //         }
-    //      }
-    //    }
-    // }
-     stage ('Test') {
+    }
+    stage ('Test') {
         steps {
             bat "pytest ./frontend/tests/test_front_end_.py"
           }
