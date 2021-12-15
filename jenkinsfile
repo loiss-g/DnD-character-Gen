@@ -24,10 +24,11 @@ pipeline {
        }
     }
     stage ('Test') {
+
         withPythonEnv('python3') {
             sh 'pip install pytest'
             sh 'pytest ./frontend/tests/test_front_end_.py'
         }
-      }
     }
+  }
 }
