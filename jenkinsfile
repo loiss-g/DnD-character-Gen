@@ -32,8 +32,9 @@ pipeline {
     stage ('Test') {
         steps {
             withPythonEnv('python3'){
+                sh 'sudo apt-get install python3-venv'
                 sh 'pip install pytest'
-            sh 'pytest ./frontend/tests/test_front_end_.py'
+                sh 'pytest ./frontend/tests/test_front_end_.py'
                 }
             }
         }
