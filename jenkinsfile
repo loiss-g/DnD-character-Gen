@@ -1,9 +1,10 @@
 pipeline {
   environment {
-        registry = "loiss/loissp"
-        registryCredential = 'dockerhub'
+        // registry = "loiss/loissp"
+        // registryCredential = 'dockerhub'
         dockerImage = ''
         loispwd=credentials("dbpwd")
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
   }
    agent any
    stages {
@@ -25,11 +26,12 @@ pipeline {
            sh 'docker push loiss/loissp:serviceone'
            sh 'docker push loiss/loissp:servicetwo'
            sh 'docker push loiss/loissp:frontend'
+           sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
        }
     }
     stage ('Test') {
         steps {
-            bat "pytest ./frontend/tests/test_front_end_.py"
+            sh "pytest ./frontend/tests/test_front_end_.py"
           }
     }
    }
