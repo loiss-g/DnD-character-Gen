@@ -22,11 +22,11 @@ pipeline {
     }
     stage ('push images to dockerhub') {
        steps{
+           sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
            sh 'docker push loiss/loissp:backend'
            sh 'docker push loiss/loissp:serviceone'
            sh 'docker push loiss/loissp:servicetwo'
            sh 'docker push loiss/loissp:frontend'
-           sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
        }
     }
     stage ('Test') {
