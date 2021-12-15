@@ -7,12 +7,12 @@ pipeline {
   }
    agent any
    stages {
-     stage('Clone Git repo') {
-        steps {
-          git branch: 'main',
-          url: 'https://github.com/loiss-g/loistries_DnD-character-Gen.git'
-        }
-    }
+    //  stage('Clone Git repo') {
+    //     steps {
+    //       git branch: 'main',
+    //       url: 'https://github.com/loiss-g/loistries_DnD-character-Gen.git'
+    //     }
+    // }
     stage ('Build') {
        steps {
          step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yaml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
