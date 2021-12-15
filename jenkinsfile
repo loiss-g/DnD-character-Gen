@@ -21,8 +21,7 @@ pipeline {
     }
     stage ('Test') {
         steps {
-          withPythonEnv ('python') {
-             sh 'pytest test_frontend_.py'
+             sh 'pytest ./frontend/tests/test_front_end_.py'
           }
        }
     }
