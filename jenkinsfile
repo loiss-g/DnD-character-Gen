@@ -15,7 +15,8 @@ pipeline {
     // }
     stage ('Build') {
        steps {
-         step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yaml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+           sh 'pwd'
+           step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yaml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
        }
     }
     stage ('Test') {
