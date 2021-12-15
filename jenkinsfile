@@ -21,7 +21,7 @@ pipeline {
     }
     stage ('push images to dockerhub') {
        steps{
-           sh 'docker pus loiss/loissp'
+           sh 'docker push loiss/loissp'
        }
     }
     stage ('Test') {
