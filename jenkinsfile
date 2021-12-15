@@ -16,13 +16,11 @@ pipeline {
     stage ('Build') {
        steps {
            sh 'pwd'
-           sh 'sudo docker-compose up -d'
+           sudo docker-compose up -d
+           script {
+            dockerImage = docker.build registry + ":$BUILD_NUMBER"
+           }
        }
-    }
-    stage ('Test') {
-        steps {
-             bat 'pytest ./frontend/tests/test_front_end_.py'
-          }
     }
     stage ('push images to dockerhub') {
        steps{
@@ -32,6 +30,11 @@ pipeline {
             }
          }
        }
+    }
+    stage ('Test') {
+        steps {
+            bat "pytest ./frontend/tests/test_front_end_.py"
+          }
     }
    }
 }
