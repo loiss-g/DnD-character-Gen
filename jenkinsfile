@@ -14,7 +14,7 @@ pipeline {
     //       url: 'https://github.com/loiss-g/loistries_DnD-character-Gen.git'
     //     }
     // }
-    stage ('Build') {
+    stage ('Build images') {
        steps {
            sh 'pwd'
            sh 'docker-compose up -d'
@@ -33,7 +33,7 @@ pipeline {
         steps {
             withPythonEnv('python3'){
                 sh 'pip install pytest'
-                sh 'pytest .workspace/Lpipeline/frontend/tests/test_front_end.py'
+                sh 'pytest ./test_front_end.py'
                 }
             }
         }
