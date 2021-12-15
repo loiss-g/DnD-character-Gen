@@ -35,5 +35,5 @@ pipeline {
             sh 'pytest ./frontend/tests/test_front_end_.py'
         }
       }
-    }
+   }
 }
