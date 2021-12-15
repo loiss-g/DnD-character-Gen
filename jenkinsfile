@@ -16,7 +16,6 @@ pipeline {
     stage ('Build') {
        steps {
            sh 'pwd'
-           sudo docker-compose up -d
            script {
             dockerImage = docker.build registry + ":$BUILD_NUMBER"
            }
