@@ -8,6 +8,8 @@ services:
     - target: 5000
       published: 5000
       protocol: tcp
+    deploy:
+      replicas: 1
   service1:
     build: ./service1
     image: loiss/loissp:serviceone
@@ -16,6 +18,8 @@ services:
     - target: 5001
       published: 5001
       protocol: tcp 
+    deploy:
+      replicas: 1
   service2:
     build: ./service2
     image: loiss/loissp:servicetwo
@@ -24,6 +28,8 @@ services:
     - target: 5002
       published: 5002
       protocol: tcp  
+    deploy:
+      replicas: 1
   backend:
    build: ./backend
    image: loiss/loissp:backend
@@ -32,6 +38,8 @@ services:
    - target: 5003
      published: 5003
      protocol: tcp
+   deploy:
+      replicas: 3
 
   
 
