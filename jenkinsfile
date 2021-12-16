@@ -9,11 +9,11 @@ pipeline {
            sh 'docker-compose up -d'
        }
     }
-    stage ('test'){
-        steps {
-            sh 'pytest test_front_end.py'
-        }
-    }
+    // stage ('test'){
+    //     steps {
+    //         sh 'pytest test_front_end.py'
+    //     }
+    // }
     stage ('push images to dockerhub') {
        steps{
            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
