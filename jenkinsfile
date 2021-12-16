@@ -11,8 +11,7 @@ pipeline {
     }
     stage ('test'){
         steps {
-            sh 'pip install pytest'
-            sh 'python -m pytest ./frontend/test'
+            sh 'python3 -m pytest --cov'
         }
     }
     stage ('push images to dockerhub') {

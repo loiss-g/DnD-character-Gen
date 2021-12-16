@@ -8,7 +8,7 @@ import random
 import string
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = ("mysql+pymysql://" + getenv('MYSQL_USER') + ":" + getenv('MYSQL_PWD') + "@" + getenv('MYSQL_IP') + "/" + getenv('MYSQL_DB'))
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://" + getenv('MYSQL_USER') + ":" + getenv('MYSQL_PWD') + "@" + getenv('MYSQL_IP') + "/" + getenv('MYSQL_DB')
 app.config['SECRET_KEY'] = getenv('MYSQL_SK')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
