@@ -26,6 +26,7 @@ pipeline {
     stage ('deploy') {
         steps {
             sh 'cd /var/lib/jenkins/workspace'
+            sh 'chmod 400 DNDkey.pem'
             sh 'ssh -i DNDkey.pem  azureuser@20.120.88.216'
             sh 'cd /home/azureuser/loistries_DnD-character-Gen'
             sh 'git pull'
