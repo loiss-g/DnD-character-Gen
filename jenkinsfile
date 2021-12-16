@@ -23,14 +23,15 @@ pipeline {
            sh 'docker push loiss/loissp:frontend'
        }
     }
-    // stage ('deploy') {
-    //     steps {
-    //         sh 'ssh -tt -i DNDkey.pem azureuser@20.120.88.216'
-    //         sh 'cd /home/azureuser/loistries_DnD-character-Gen'
-    //         sh 'git pull'
-    //         sh 'docker stack deploy --compose-file docker-compose.yaml deploytest'
-    //         sh 'logout'
-    //     }
-    // }
+    stage ('deploy') {
+        steps {
+            sh 'cd /var/lib/jenkins/workspace'
+            sh 'ssh -i DNDkey.pem  azureuser@20.120.88.216'
+            sh 'cd /home/azureuser/loistries_DnD-character-Gen'
+            sh 'git pull'
+            sh 'docker stack deploy --compose-file docker-compose.yaml deploytest'
+            sh 'logout'
+        }
+    }
    }
 }
