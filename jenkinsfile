@@ -11,6 +11,7 @@ pipeline {
     }
     stage ('test'){
         steps {
+            sh 'pip install pymysql'
             sh 'python3 -m pytest'
         }
     }
