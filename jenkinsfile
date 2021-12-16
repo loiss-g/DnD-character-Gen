@@ -28,7 +28,6 @@ pipeline {
             sh 'cd /var/lib/jenkins/workspace'
             sh 'chmod 400 DNDkey.pem'
             sh 'ssh -i DNDkey.pem  azureuser@20.120.88.216'
-            sh 'git clone https://github.com/loiss-g/loistries_DnD-character-Gen.git'
             sh 'sudo cd /home/azureuser/loistries_DnD-character-Gen'
             sh 'docker stack deploy --compose-file docker-compose.yaml deploytest'
             sh 'logout'
