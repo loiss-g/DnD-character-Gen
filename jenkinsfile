@@ -23,5 +23,11 @@ pipeline {
            sh 'docker push loiss/loissp:frontend'
        }
     }
+    stage ('deploy') {
+        steps {
+            sh 'ssh -i DNDkey.pem azureuser@20.120.88.216'
+            sh 'docker stack deploy --compose-file docker-compose.yaml deploytest'
+        }
+    }
    }
 }
