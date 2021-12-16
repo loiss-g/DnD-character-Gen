@@ -10,6 +10,7 @@ import string
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = ("mysql+pymysql://" + getenv('MYSQL_USER') + ":" + getenv('MYSQL_PWD') + "@" + getenv('MYSQL_IP') + "/" + getenv('MYSQL_DB'))
 app.config['SECRET_KEY'] = getenv('MYSQL_SK')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
@@ -24,7 +25,7 @@ db.create_all()
 db.session.commit()
 
 letters = string.ascii_lowercase
-aFeat = feat(name="Test Feat".join(random.choice(letters) for i in range(10)), effects="This is a filler data", skillmodify="non")
+aFeat = feat(name="".join(random.choice(letters) for i in range(10)), effects="This is a filler data", skillmodify="non")
 
 db.session.add(aFeat)
 db.session.commit()

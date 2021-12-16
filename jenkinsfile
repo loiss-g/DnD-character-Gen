@@ -1,22 +1,18 @@
 pipeline {
   environment {
-        loispwd=credentials("dbpwd")
         DOCKERHUB_CREDENTIALS=credentials('dockerhub')
   }
    agent any
    stages {
     stage ('Build images') {
        steps {
-           sh 'pwd'
            sh 'docker-compose up -d'
        }
     }
     stage ('test'){
         steps {
-            withPythonEnv('python3'){
-                sh 'pip install pytest'
-                sh 'python -m pytest ./frontend/test'
-            }
+            sh 'pip install pytest'
+            sh 'python -m pytest ./frontend/test'
         }
     }
     stage ('push images to dockerhub') {

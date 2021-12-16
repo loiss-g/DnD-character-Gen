@@ -1,23 +1,13 @@
 version: "3.7"
 services:
-  mysql:
-     image: mysql:5.7
-     build: ./db
-     container_name: mysql
-     environment:
-        - MYSQL_ROOT_PASSWORD=${loispwd}
   frontend:
     build: ./frontend
     image: loiss/loissp:frontend
-    environment:
-      - MYSQL_PWD=${loispwd}
     container_name: application 
     ports:
     - target: 5000
       published: 5000
       protocol: tcp
-    depends_on:
-     - mysql
   service1:
     build: ./service1
     image: loiss/loissp:serviceone
@@ -33,18 +23,7 @@ services:
     ports:
     - target: 5002
       published: 5002
-      protocol: tcp
-  nginx:
-   image: nginx:latest
-   container_name: nginx
-   ports:
-   - target: 80
-     published: 80
-     protocol: tcp
-   volumes:
-     - type: bind
-       source: ./frontend/nginx/nginx.conf
-       target: /etc/nginx/nginx.conf   
+      protocol: tcp  
   backend:
    build: ./backend
    image: loiss/loissp:backend
