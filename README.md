@@ -1,5 +1,3 @@
-You need to include:
-
 An explanation of your app and how it fulfils the brief.
 - 
  - You are able to create a charcter, assign it features, give it a name and also log into the character generator to view your character.  At the moment you are not able to delete or update a character.
