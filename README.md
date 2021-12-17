@@ -4,7 +4,7 @@ An explanation of your app and how it fulfils the brief.
 
 A technical description of how the application works.
 -
- - The frontend folder has:
+ - Within the application folder in the frontend folder there is a :
  - Routes folder is where you are able to access pages where you can add a charcter and features and also log into the character. 
  - Models folder is a template of your database table and it contains classes and what varibles you want in each column of your class and also defines if they are a string, numeric etc.
  - Templates folder contains the HTML files which has the formating of your application, it contains the layout structure, paragraph formatting etc, and is esssentially how your user would see the webpages. 
