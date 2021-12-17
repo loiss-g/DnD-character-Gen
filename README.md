@@ -13,7 +13,7 @@ A technical description of how the application works.
 A technical description of how the pipeline works.
 -
  - A webhook is created to connect to your jenkins to your github
- - You then create a piplejob in jenkins
+ - You then create a pipelinejob in jenkins
  - The pipeline first sets the envrionemnts - this is where your crenditals for your dockerhub are stored. This was done via jenkins global credentials - username with password. 
  - The images are built using the docker-compose file from your repo. They are then teststed and pushed to dockerhub if tests are sucessful.
  - Afterwards they are pulled form dockerhub to depoly using a docker swarm
