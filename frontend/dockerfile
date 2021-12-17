@@ -10,7 +10,7 @@ RUN pip install -r "requirements.txt"
 ENV MYSQL_USER "loistries@loistries"
 ENV MYSQL_PWD "Password123"
 ENV MYSQL_IP "loistries.mysql.database.azure.com:3306"
-ENV MYSQL_DB "loisproject"
+ENV MYSQL_DB "dnd"
 ENV MYSQL_SK "gtdxtrdfyhfhyfyf"
 
 # Expose the correct port
